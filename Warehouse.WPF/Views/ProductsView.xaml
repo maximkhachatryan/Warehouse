@@ -1,0 +1,70 @@
+﻿<UserControl x:Class="Warehouse.WPF.Views.ProductsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Warehouse.WPF.Views" xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             DataContext="{StaticResource ProductsViewModel}">
+
+    <DockPanel Margin="10">
+        <TextBlock FontSize="24" Text="Ապրանքացանկ" DockPanel.Dock="Top" Margin="0 0 0 30"/>
+
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0 0 0 10">
+            <TextBox Width="180"/>
+        </StackPanel>
+
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" DockPanel.Dock="Top" Margin="0 10 0 2">
+            <Button Height="25"
+                                    Width="25"
+                                    Style="{DynamicResource MahApps.Styles.Button.Circle}">
+                <Button.Content>
+                    <mah:FontIcon HorizontalAlignment="Center" FontSize="13" FontFamily="Segoe MDL2 Assets" Glyph="&#xEDE1;" />
+                </Button.Content>
+            </Button>
+        </StackPanel>
+        <DataGrid ItemsSource="{Binding Products}"
+              Style="{StaticResource MahApps.Styles.DataGrid.Azure}"
+              AutoGenerateColumns="False"
+              IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Կոդ" Binding="{Binding Code}"/>
+                <DataGridTextColumn Header="Անվանում" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Ինքնարժեք" Binding="{Binding Cost}"/>
+                <DataGridTextColumn Header="Մեծածախ գին" Binding="{Binding WholesalePrice}"/>
+                <DataGridTextColumn Header="Մանրածախ գին" Binding="{Binding RetailPrice}"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Height="25"
+                                    Width="25"
+                                    Style="{DynamicResource MahApps.Styles.Button.Circle}">
+                                    <Button.Content>
+                                        <mah:FontIcon HorizontalAlignment="Center" FontSize="13" FontFamily="Segoe MDL2 Assets" Glyph="&#xEA63;" />
+                                    </Button.Content>
+                                </Button>
+                                <Button Height="25"
+                                    Width="25"
+                                    Style="{DynamicResource MahApps.Styles.Button.Circle}">
+                                    <Button.Content>
+                                        <mah:FontIcon HorizontalAlignment="Center" FontSize="13" FontFamily="Segoe MDL2 Assets" Glyph="&#xEB7E;" />
+                                    </Button.Content>
+                                </Button>
+                                <Button Height="25"
+                                    Width="25"
+                                    Style="{DynamicResource MahApps.Styles.Button.Circle}">
+                                    <Button.Content>
+                                        <mah:FontIcon HorizontalAlignment="Center" FontSize="13" FontFamily="Segoe MDL2 Assets" Glyph="&#xE738;" />
+                                    </Button.Content>
+                                </Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</UserControl>

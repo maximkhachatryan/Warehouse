@@ -1,5 +1,4 @@
-﻿using MahApps.Metro.Controls;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Warehouse.WPF
+namespace Warehouse.WPF.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for NavbarView.xaml
     /// </summary>
-    public partial class MainWindow : MetroWindow
+    public partial class NavbarView : UserControl
     {
-        public MainWindow()
+        public NavbarView()
         {
             InitializeComponent();
         }
