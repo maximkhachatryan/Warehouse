@@ -1,0 +1,22 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:controls="clr-namespace:Warehouse.Avalonia.Views"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Warehouse.Avalonia.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Warehouse.Avalonia.Views.ActionView">
+  <TabControl>
+    <TabItem Header="Վաճառք" VerticalContentAlignment="Center">
+      <controls:SaleView/>
+    </TabItem>
+    <TabItem Header="Մուտք" VerticalContentAlignment="Center">
+      <StackPanel>
+      </StackPanel>
+    </TabItem>
+    <TabItem Header="Ելք" VerticalContentAlignment="Center">
+      <StackPanel>
+      </StackPanel>
+    </TabItem>
+  </TabControl>
+</UserControl>

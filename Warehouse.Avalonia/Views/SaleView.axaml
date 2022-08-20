@@ -1,0 +1,34 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Warehouse.Avalonia.Views.SaleView">
+  <DockPanel>
+    <AutoCompleteBox x:Name="searchbox"
+                     DockPanel.Dock="Top"
+                     Items="{Binding Path=AllProducts, Mode=OneWay}"
+                     ValueMemberBinding="{Binding Path=Name, Mode=OneWay}"
+                     Watermark="Որոնել">
+
+    </AutoCompleteBox>
+    <Grid Margin="0 10">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="auto" />
+        <RowDefinition Height="2*"/>
+      </Grid.RowDefinitions>
+      <ListBox Grid.Row="0"/>
+      <GridSplitter Grid.Row="1"/>
+      <DataGrid Grid.Row="2"
+                Items="{Binding SaleItems}"
+                AutoGenerateColumns="False">
+        <DataGrid.Columns>
+          <DataGridTextColumn Header="Կոդ" Binding="{Binding Code}"/>
+          <DataGridTextColumn Header="Անվանում" Binding="{Binding Name}" />
+        </DataGrid.Columns>
+      </DataGrid>
+    </Grid>
+
+  </DockPanel>
+</UserControl>
