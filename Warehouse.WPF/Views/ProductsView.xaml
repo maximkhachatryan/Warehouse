@@ -48,6 +48,23 @@
                                 </Button>
                                 <Button Height="25"
                                     Width="25"
+                                    Background="LightSkyBlue"
+                                    Style="{DynamicResource MahApps.Styles.Button.Circle}">
+                                    <Button.Content>
+                                        <mah:FontIcon HorizontalAlignment="Center" FontSize="13" FontFamily="Segoe MDL2 Assets" Glyph="&#xE738;" />
+                                    </Button.Content>
+                                </Button>
+                                <Button Height="25"
+                                    Width="25"
+                                    Background="LightSkyBlue"
+                                    Style="{DynamicResource MahApps.Styles.Button.Circle}">
+                                    <Button.Content>
+                                        <mah:FontIcon HorizontalAlignment="Center" FontSize="13" FontFamily="Segoe MDL2 Assets" Glyph="&#xE710;" />
+                                    </Button.Content>
+                                </Button>
+                                <Button Height="25"
+                                    Width="25"
+                                    Background="AntiqueWhite"
                                     Style="{DynamicResource MahApps.Styles.Button.Circle}">
                                     <Button.Content>
                                         <mah:FontIcon HorizontalAlignment="Center" FontSize="13" FontFamily="Segoe MDL2 Assets" Glyph="&#xEB7E;" />
@@ -55,9 +72,10 @@
                                 </Button>
                                 <Button Height="25"
                                     Width="25"
+                                    Background="IndianRed"
                                     Style="{DynamicResource MahApps.Styles.Button.Circle}">
                                     <Button.Content>
-                                        <mah:FontIcon HorizontalAlignment="Center" FontSize="13" FontFamily="Segoe MDL2 Assets" Glyph="&#xE738;" />
+                                        <mah:FontIcon HorizontalAlignment="Center" FontSize="13" FontFamily="Segoe MDL2 Assets" Glyph="&#xE74D;" />
                                     </Button.Content>
                                 </Button>
                             </StackPanel>

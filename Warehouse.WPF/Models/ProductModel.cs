@@ -11,9 +11,9 @@ namespace Warehouse.WPF.Models
         public Guid Id { get; set; }
         public int Code { get; set; }
         public string Name { get; set; }
-        public decimal Cost { get; set; }
-        public decimal WholesalePrice { get; set; }
-        public decimal RetailPrice { get; set; }
+        public int Cost { get; set; }
+        public int WholesalePrice { get; set; }
+        public int RetailPrice { get; set; }
         public int Quantity { get; set; }
     }
 }

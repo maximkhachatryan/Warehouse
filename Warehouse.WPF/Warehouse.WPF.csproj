@@ -10,4 +10,8 @@
     <PackageReference Include="MahApps.Metro" Version="2.4.9" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Warehouse.DAL\Warehouse.DAL.csproj" />
+  </ItemGroup>
+
 </Project>
