@@ -40,12 +40,13 @@ namespace Warehouse.DAL.Services
                 .ToList();
         }
 
-        public void CreateProduct(string name, int wholesalePrice, int retailPrice, string notes)
+        public void CreateProduct(string name, int cost, int wholesalePrice, int retailPrice, string notes)
         {
             _context.Products.Add(new Product
             {
                 Id = Guid.NewGuid(),
                 Code = GenerateProductCode(),
+                Cost = cost,
                 CreateDate = DateTime.Now,
                 IsRemoved = false,
                 Name = name,
@@ -101,12 +102,13 @@ namespace Warehouse.DAL.Services
             }
         }
 
-        public void EditProduct(Guid id, string name, int wholesalePrice, int retailPrice, string notes)
+        public void EditProduct(Guid id, string name, int cost, int wholesalePrice, int retailPrice, string notes)
         {
             var product = _context.Products.Find(id);
             if (product != null)
             {
                 product.Name = name;
+                product.Cost = cost;
                 product.WholesalePrice = wholesalePrice;
                 product.RetailPrice = retailPrice;
                 product.Notes = notes;

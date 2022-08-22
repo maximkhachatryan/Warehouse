@@ -17,6 +17,7 @@ namespace Warehouse
                 Name = product.Name,
                 Notes = product.Notes,
                 Quantity = product.Quantity,
+                Cost = product.Cost,
                 RetailPrice = product.RetailPrice,
                 WholesalePrice = product.WholesalePrice
             };

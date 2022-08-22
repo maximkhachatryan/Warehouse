@@ -38,11 +38,13 @@ namespace Warehouse
             this.txtWholesalePrice = new System.Windows.Forms.TextBox();
             this.txtRetailPrice = new System.Windows.Forms.TextBox();
             this.txtNotes = new System.Windows.Forms.TextBox();
+            this.txtCost = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(300, 215);
+            this.btnEdit.Location = new System.Drawing.Point(300, 255);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(82, 22);
@@ -63,7 +65,7 @@ namespace Warehouse
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 36);
+            this.label3.Location = new System.Drawing.Point(29, 66);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(91, 15);
             this.label3.TabIndex = 4;
@@ -72,7 +74,7 @@ namespace Warehouse
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 61);
+            this.label4.Location = new System.Drawing.Point(19, 93);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(101, 15);
             this.label4.TabIndex = 5;
@@ -81,7 +83,7 @@ namespace Warehouse
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(62, 86);
+            this.label5.Location = new System.Drawing.Point(59, 120);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 15);
             this.label5.TabIndex = 6;
@@ -97,7 +99,7 @@ namespace Warehouse
             // 
             // txtWholesalePrice
             // 
-            this.txtWholesalePrice.Location = new System.Drawing.Point(133, 34);
+            this.txtWholesalePrice.Location = new System.Drawing.Point(133, 63);
             this.txtWholesalePrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtWholesalePrice.Name = "txtWholesalePrice";
             this.txtWholesalePrice.Size = new System.Drawing.Size(249, 23);
@@ -106,7 +108,7 @@ namespace Warehouse
             // 
             // txtRetailPrice
             // 
-            this.txtRetailPrice.Location = new System.Drawing.Point(133, 58);
+            this.txtRetailPrice.Location = new System.Drawing.Point(133, 90);
             this.txtRetailPrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtRetailPrice.Name = "txtRetailPrice";
             this.txtRetailPrice.Size = new System.Drawing.Size(249, 23);
@@ -115,18 +117,38 @@ namespace Warehouse
             // 
             // txtNotes
             // 
-            this.txtNotes.Location = new System.Drawing.Point(133, 83);
+            this.txtNotes.Location = new System.Drawing.Point(133, 117);
             this.txtNotes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNotes.Multiline = true;
             this.txtNotes.Name = "txtNotes";
             this.txtNotes.Size = new System.Drawing.Size(249, 128);
             this.txtNotes.TabIndex = 10;
             // 
+            // txtCost
+            // 
+            this.txtCost.Location = new System.Drawing.Point(133, 36);
+            this.txtCost.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCost.Name = "txtCost";
+            this.txtCost.Size = new System.Drawing.Size(249, 23);
+            this.txtCost.TabIndex = 12;
+            this.txtCost.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numberInput_KeyPress);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(46, 39);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(74, 15);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Ինքնարժեք";
+            // 
             // EditProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(392, 271);
+            this.ClientSize = new System.Drawing.Size(392, 288);
+            this.Controls.Add(this.txtCost);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.txtNotes);
             this.Controls.Add(this.txtRetailPrice);
             this.Controls.Add(this.txtWholesalePrice);
@@ -160,5 +182,7 @@ namespace Warehouse
         private System.Windows.Forms.TextBox txtWholesalePrice;
         private System.Windows.Forms.TextBox txtRetailPrice;
         private System.Windows.Forms.TextBox txtNotes;
+        private System.Windows.Forms.TextBox txtCost;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -26,6 +26,7 @@ namespace Warehouse
         {
             this._product = product;
             this.txtName.Text = product.Name;
+            this.txtCost.Text = product.Cost.ToString();
             this.txtWholesalePrice.Text = product.WholesalePrice.ToString();
             this.txtRetailPrice.Text = product.RetailPrice.ToString();
             this.txtNotes.Text = product.Notes;
@@ -34,12 +35,13 @@ namespace Warehouse
         private void btnEdit_Click(object sender, EventArgs e)
         {
             var name = this.txtName.Text;
+            var cost = int.Parse(this.txtCost.Text);
             var wholesalePrice = int.Parse(this.txtWholesalePrice.Text);
             var retailPrice = int.Parse(this.txtRetailPrice.Text);
             var notes = this.txtNotes.Text;
             using (WarehouseService service = new WarehouseService())
             {
-                service.EditProduct(_product.Id, name, wholesalePrice, retailPrice, notes);
+                service.EditProduct(_product.Id, name, cost, wholesalePrice, retailPrice, notes);
             }
             this.Close();
             ProductUpdated.Invoke(this, EventArgs.Empty);

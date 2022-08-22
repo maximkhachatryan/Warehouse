@@ -22,6 +22,7 @@ namespace Warehouse
         public void RefreshForm()
         {
             this.txtName.Text = string.Empty;
+            this.txtCost.Text = string.Empty;
             this.txtWholesalePrice.Text = string.Empty;
             this.txtRetailPrice.Text = string.Empty;
             this.txtNotes.Text = string.Empty;
@@ -30,12 +31,13 @@ namespace Warehouse
         private void btnCreate_Click(object sender, EventArgs e)
         {
             var name = this.txtName.Text;
+            var cost = int.Parse(this.txtCost.Text);
             var wholesalePrice = int.Parse(this.txtWholesalePrice.Text);
             var retailPrice = int.Parse(this.txtRetailPrice.Text);
             var notes = this.txtNotes.Text;
             using (WarehouseService service = new WarehouseService())
             {
-                service.CreateProduct(name, wholesalePrice, retailPrice, notes);
+                service.CreateProduct(name, cost, wholesalePrice, retailPrice, notes);
             }
             this.Close();
             ProductCreated.Invoke(this, EventArgs.Empty);

@@ -15,9 +15,11 @@ namespace Warehouse.ViewModels
         public string Name { get; set; }
         [DisplayName("Ունեցած քանակ")]
         public int Quantity { get; set; }
-        [DisplayName("Գին 1")]
+        [DisplayName("Ինքնարժեք")]
+        public int Cost { get; set; }
+        [DisplayName("Մեծածախ գին")]
         public int WholesalePrice { get; set; }
-        [DisplayName("Գին 2")]
+        [DisplayName("Մանրածախ գին")]
         public int RetailPrice { get; set; }
         [DisplayName("Նշումներ")]
         public string Notes { get; set; }
