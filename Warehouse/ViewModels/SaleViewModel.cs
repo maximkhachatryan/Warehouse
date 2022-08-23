@@ -30,6 +30,9 @@ namespace Warehouse.ViewModels
         [DisplayName("Պարտքով")]
         public bool ByLend { get; set; }
 
+        [DisplayName("Շահույթ")]
+        public int Profit { get; set; }
+
         [DisplayName("Նշումներ")]
         public string Notes { get; set; }
     }

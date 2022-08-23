@@ -35,14 +35,16 @@ namespace Warehouse
                     Notes = s.Notes,
                     Price = s.Price,
                     ProductId = s.Product.Id,
-                    Quantity = s.Quantity
+                    Quantity = s.Quantity,
+                    Profit = s.Quantity * (s.Price - s.Product.Cost)
                 }).ToList();
             }
             dgvSales.DataSource = _sales;
             dgvSales.Refresh();
 
             var salesSum = _sales.Where(s => s.ByLend == false).Select(s => s.Quantity * s.Price).Sum();
-            lblSalesSum.Text = salesSum.ToString();
+            var salesProfitSum = _sales.Where(s => s.ByLend == false).Select(s => s.Profit).Sum();
+            lblSalesSum.Text = $"{salesSum.ToString()} ({salesProfitSum.ToString()})";
 
             using (var service = new WarehouseService())
             {
@@ -57,10 +59,17 @@ namespace Warehouse
             dgvRepayments.Refresh();
 
             var repaymentsSum = _repayments.Select(s => s.Amount).Sum();
-            lblRepaymentSum.Text = repaymentsSum.ToString();
 
+            decimal revenueParcentOfUnpaidSales;
+            using (var service = new WarehouseService())
+            {
+                revenueParcentOfUnpaidSales = service.GetRevenuePortionOfUnpaidSales(date);
+            }
+            var repaymentProfit = repaymentsSum * revenueParcentOfUnpaidSales;
 
-            lblOverallSum.Text = $"Ընդհանուր ։ {salesSum + repaymentsSum}";
+            lblRepaymentSum.Text = $"{repaymentsSum.ToString()} ({repaymentProfit})";
+
+            lblOverallSum.Text = $"Ընդհանուր ։ {salesSum + repaymentsSum} ({salesProfitSum + repaymentProfit})";
 
             this.ShowDialog();
         }

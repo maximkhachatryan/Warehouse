@@ -8,6 +8,7 @@ namespace Warehouse.DAL.Entities
     {
         public Guid Id { get; set; }
         public int Quantity { get; set; }
+        public int CurrentCost { get; set; }
         public int Price { get; set; }
         public DateTime TimeStamp { get; set; }
         public string Notes { get; set; }

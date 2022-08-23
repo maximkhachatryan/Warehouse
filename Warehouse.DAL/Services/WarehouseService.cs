@@ -40,6 +40,15 @@ namespace Warehouse.DAL.Services
                 .ToList();
         }
 
+        public decimal GetRevenuePortionOfUnpaidSales(DateTime date)
+        {
+            var unpaidSales = _context.Sales.AsNoTracking()
+                .Where(s => s.TimeStamp.Date <= date && s.ByLend == true);
+            var revenue = unpaidSales.Select(s => s.Quantity * (s.Price - s.CurrentCost)).Sum();
+            var unpaidAmount = unpaidSales.Select(s => s.Quantity * s.Price).Sum();
+            return revenue / unpaidAmount;
+        }
+
         public void CreateProduct(string name, int cost, int wholesalePrice, int retailPrice, string notes)
         {
             _context.Products.Add(new Product
@@ -136,17 +145,23 @@ namespace Warehouse.DAL.Services
         public void StoreSales(List<SellInput> sellInputs, bool byLend)
         {
             var products = _context.Products.ToList();
-            var sales = sellInputs.Select(s => new Sale
+            var sales = sellInputs.Select(s =>
             {
-                Id = Guid.NewGuid(),
-                Notes = s.Notes,
-                Price = s.Price,
-                Product = products.FirstOrDefault(p => p.Id == s.ProductId),
-                Quantity = s.Quantity,
-                ByLend = byLend,
-                TimeStamp = DateTime.Now
+                var product = products.FirstOrDefault(p => p.Id == s.ProductId);
+                return new Sale
+                {
+                    Id = Guid.NewGuid(),
+                    Notes = s.Notes,
+                    Price = s.Price,
+                    CurrentCost = product.Cost,
+                    Product = product,
+                    Quantity = s.Quantity,
+                    ByLend = byLend,
+                    TimeStamp = DateTime.Now
+                };
             });
-            foreach(var sale in sales)
+
+            foreach (var sale in sales)
             {
                 sale.Product.Quantity -= sale.Quantity;
             }
