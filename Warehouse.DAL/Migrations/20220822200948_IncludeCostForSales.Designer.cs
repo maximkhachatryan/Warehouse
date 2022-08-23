@@ -9,7 +9,7 @@ using Warehouse.DAL;
 
 namespace Warehouse.DAL.Migrations
 {
-    [DbContext(typeof(WarehouseContext))]
+    [DbContext(typeof(WarehouseMsSqlContext))]
     [Migration("20220822200948_IncludeCostForSales")]
     partial class IncludeCostForSales
     {

@@ -6,7 +6,7 @@ using Warehouse.DAL.Common.Entities;
 
 namespace Warehouse.DAL
 {
-    public class WarehouseContext : DbContext
+    public class WarehouseMsSqlContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -2,42 +2,42 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Warehouse.DAL;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
+using Warehouse.DAL.Postgre;
 
-namespace Warehouse.DAL.Migrations
+namespace Warehouse.DAL.Postgre.Migrations
 {
-    [DbContext(typeof(WarehouseMsSqlContext))]
-    [Migration("20220822180633_IncludeCost")]
-    partial class IncludeCost
+    [DbContext(typeof(WarehousePostgreContext))]
+    [Migration("20220823164859_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("Relational:MaxIdentifierLength", 128)
+                .HasAnnotation("Relational:MaxIdentifierLength", 63)
                 .HasAnnotation("ProductVersion", "5.0.10")
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-            modelBuilder.Entity("Warehouse.DAL.Entities.Input", b =>
+            modelBuilder.Entity("Warehouse.DAL.Common.Entities.Input", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Notes")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<Guid?>("ProductId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uuid");
 
                     b.Property<int>("Quantity")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<DateTime>("TimeStamp")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp without time zone");
 
                     b.HasKey("Id");
 
@@ -46,23 +46,23 @@ namespace Warehouse.DAL.Migrations
                     b.ToTable("Inputs");
                 });
 
-            modelBuilder.Entity("Warehouse.DAL.Entities.Output", b =>
+            modelBuilder.Entity("Warehouse.DAL.Common.Entities.Output", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Notes")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<Guid?>("ProductId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uuid");
 
                     b.Property<int>("Quantity")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<DateTime>("TimeStamp")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp without time zone");
 
                     b.HasKey("Id");
 
@@ -71,64 +71,64 @@ namespace Warehouse.DAL.Migrations
                     b.ToTable("Outputs");
                 });
 
-            modelBuilder.Entity("Warehouse.DAL.Entities.Product", b =>
+            modelBuilder.Entity("Warehouse.DAL.Common.Entities.Product", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uuid");
 
                     b.Property<int>("Code")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int>("Cost")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<DateTime>("CreateDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<bool>("IsRemoved")
-                        .HasColumnType("bit");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Notes")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<int>("Quantity")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int>("RetailPrice")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int>("WholesalePrice")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("Warehouse.DAL.Entities.Refund", b =>
+            modelBuilder.Entity("Warehouse.DAL.Common.Entities.Refund", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Notes")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<int>("Price")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<Guid?>("ProductId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uuid");
 
                     b.Property<int>("Quantity")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<DateTime>("TimeStamp")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp without time zone");
 
                     b.HasKey("Id");
 
@@ -137,49 +137,52 @@ namespace Warehouse.DAL.Migrations
                     b.ToTable("Refunds");
                 });
 
-            modelBuilder.Entity("Warehouse.DAL.Entities.Repayment", b =>
+            modelBuilder.Entity("Warehouse.DAL.Common.Entities.Repayment", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uuid");
 
                     b.Property<int>("Amount")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("ByWhom")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<DateTime>("Timestamp")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp without time zone");
 
                     b.HasKey("Id");
 
                     b.ToTable("Repayments");
                 });
 
-            modelBuilder.Entity("Warehouse.DAL.Entities.Sale", b =>
+            modelBuilder.Entity("Warehouse.DAL.Common.Entities.Sale", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uuid");
 
                     b.Property<bool>("ByLend")
-                        .HasColumnType("bit");
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("CurrentCost")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Notes")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<int>("Price")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<Guid?>("ProductId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uuid");
 
                     b.Property<int>("Quantity")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<DateTime>("TimeStamp")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp without time zone");
 
                     b.HasKey("Id");
 
@@ -188,36 +191,36 @@ namespace Warehouse.DAL.Migrations
                     b.ToTable("Sales");
                 });
 
-            modelBuilder.Entity("Warehouse.DAL.Entities.Input", b =>
+            modelBuilder.Entity("Warehouse.DAL.Common.Entities.Input", b =>
                 {
-                    b.HasOne("Warehouse.DAL.Entities.Product", "Product")
+                    b.HasOne("Warehouse.DAL.Common.Entities.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId");
 
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("Warehouse.DAL.Entities.Output", b =>
+            modelBuilder.Entity("Warehouse.DAL.Common.Entities.Output", b =>
                 {
-                    b.HasOne("Warehouse.DAL.Entities.Product", "Product")
+                    b.HasOne("Warehouse.DAL.Common.Entities.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId");
 
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("Warehouse.DAL.Entities.Refund", b =>
+            modelBuilder.Entity("Warehouse.DAL.Common.Entities.Refund", b =>
                 {
-                    b.HasOne("Warehouse.DAL.Entities.Product", "Product")
+                    b.HasOne("Warehouse.DAL.Common.Entities.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId");
 
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("Warehouse.DAL.Entities.Sale", b =>
+            modelBuilder.Entity("Warehouse.DAL.Common.Entities.Sale", b =>
                 {
-                    b.HasOne("Warehouse.DAL.Entities.Product", "Product")
+                    b.HasOne("Warehouse.DAL.Common.Entities.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId");
 

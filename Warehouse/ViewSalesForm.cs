@@ -33,7 +33,7 @@ namespace Warehouse
                     Price = s.Price,
                     ProductId = s.Product.Id,
                     Quantity = s.Quantity,
-                    Profit = s.Quantity * (s.Price - s.Product.Cost)
+                    Profit = s.Quantity * (s.Price - s.CurrentCost)
                 }).ToList();
             }
             dgvSales.DataSource = _sales;

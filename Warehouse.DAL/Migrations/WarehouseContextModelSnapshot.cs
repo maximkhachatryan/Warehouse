@@ -8,7 +8,7 @@ using Warehouse.DAL;
 
 namespace Warehouse.DAL.Migrations
 {
-    [DbContext(typeof(WarehouseContext))]
+    [DbContext(typeof(WarehouseMsSqlContext))]
     partial class WarehouseContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

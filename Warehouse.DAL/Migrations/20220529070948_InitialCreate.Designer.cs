@@ -9,7 +9,7 @@ using Warehouse.DAL;
 
 namespace Warehouse.DAL.Migrations
 {
-    [DbContext(typeof(WarehouseContext))]
+    [DbContext(typeof(WarehouseMsSqlContext))]
     [Migration("20220529070948_InitialCreate")]
     partial class InitialCreate
     {

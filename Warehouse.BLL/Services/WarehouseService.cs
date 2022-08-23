@@ -6,16 +6,17 @@ using Warehouse.BLL.Exceptions;
 using Warehouse.BLL.Models;
 using Warehouse.DAL;
 using Warehouse.DAL.Common.Entities;
+using Warehouse.DAL.Postgre;
 
 namespace Warehouse.BLL.Services
 {
     public class WarehouseService : IDisposable
     {
-        readonly WarehouseContext _context;
+        readonly WarehousePostgreContext _context;
 
         public WarehouseService()
         {
-            _context = new WarehouseContext();
+            _context = new WarehousePostgreContext();
         }
 
         public void Dispose()
