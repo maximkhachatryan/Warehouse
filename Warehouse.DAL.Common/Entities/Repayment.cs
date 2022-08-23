@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Warehouse.DAL.Entities
+namespace Warehouse.DAL.Common.Entities
 {
     public class Repayment
     {

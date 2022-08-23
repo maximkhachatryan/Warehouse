@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Warehouse.DAL.Entities;
+using Warehouse.DAL.Common.Entities;
 using Warehouse.ViewModels;
 
 namespace Warehouse

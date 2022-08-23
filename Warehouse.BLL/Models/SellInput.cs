@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Warehouse.DAL.Models
+namespace Warehouse.BLL.Models
 {
     public class SellInput
     {

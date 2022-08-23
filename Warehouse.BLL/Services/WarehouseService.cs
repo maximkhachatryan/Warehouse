@@ -2,13 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Warehouse.DAL.Entities;
-using Warehouse.DAL.Exceptions;
-using Warehouse.DAL.Models;
+using Warehouse.BLL.Exceptions;
+using Warehouse.BLL.Models;
+using Warehouse.DAL;
+using Warehouse.DAL.Common.Entities;
 
-namespace Warehouse.DAL.Services
+namespace Warehouse.BLL.Services
 {
     public class WarehouseService : IDisposable
     {

@@ -1,16 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Warehouse.DAL.Common.Entities;
 
-namespace Warehouse.DAL
+namespace Warehouse.DAL.Postgre
 {
-    public class WarehouseContext : DbContext
+    public class WarehousePostgreContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = Warehouse; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = True; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            optionsBuilder.UseNpgsql(@"Host=localhost; Database=Warehouse; Username=postgres; Password=max279292333231");
         }
 
         public virtual DbSet<Product> Products { get; set; }

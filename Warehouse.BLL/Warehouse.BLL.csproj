@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Warehouse.DAL.Common\Warehouse.DAL.Common.csproj" />
+    <ProjectReference Include="..\Warehouse.DAL.Postgre\Warehouse.DAL.Postgre.csproj" />
+    <ProjectReference Include="..\Warehouse.DAL\Warehouse.DAL.csproj" />
+  </ItemGroup>
+
+</Project>

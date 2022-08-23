@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using Warehouse.DAL.Exceptions;
-using Warehouse.DAL.Services;
+using Warehouse.BLL.Exceptions;
+using Warehouse.BLL.Services;
 using Warehouse.EventArguments;
 using Warehouse.ViewModels;
 

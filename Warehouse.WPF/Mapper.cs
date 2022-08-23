@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Warehouse.DAL.Entities;
+using Warehouse.DAL.Common.Entities;
 using Warehouse.WPF.Models;
 
 namespace Warehouse.WPF

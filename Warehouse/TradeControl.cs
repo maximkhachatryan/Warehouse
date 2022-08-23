@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using Warehouse.DAL.Entities;
-using Warehouse.DAL.Models;
-using Warehouse.DAL.Services;
+using Warehouse.BLL.Models;
+using Warehouse.BLL.Services;
 using Warehouse.ViewModels;
 
 namespace Warehouse

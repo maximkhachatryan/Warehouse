@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Warehouse.DAL.Exceptions
+namespace Warehouse.BLL.Exceptions
 {
     public class BaseException : Exception
     {
