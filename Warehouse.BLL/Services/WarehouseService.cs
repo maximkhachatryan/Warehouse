@@ -40,13 +40,13 @@ namespace Warehouse.BLL.Services
                 .ToList();
         }
 
-        public decimal GetRevenuePortionOfUnpaidSales(DateTime date)
+        public double GetRevenuePortionOfUnpaidSales(DateTime date)
         {
             var unpaidSales = _context.Sales.AsNoTracking()
                 .Where(s => s.TimeStamp.Date <= date && s.ByLend == true);
             var revenue = unpaidSales.Select(s => s.Quantity * (s.Price - s.CurrentCost)).Sum();
             var unpaidAmount = unpaidSales.Select(s => s.Quantity * s.Price).Sum();
-            return revenue / unpaidAmount;
+            return (double)revenue / unpaidAmount;
         }
 
         public void CreateProduct(string name, int cost, int wholesalePrice, int retailPrice, string notes)

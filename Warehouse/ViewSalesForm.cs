@@ -57,12 +57,12 @@ namespace Warehouse
 
             var repaymentsSum = _repayments.Select(s => s.Amount).Sum();
 
-            decimal revenueParcentOfUnpaidSales;
+            double revenueParcentOfUnpaidSales;
             using (var service = new WarehouseService())
             {
                 revenueParcentOfUnpaidSales = service.GetRevenuePortionOfUnpaidSales(date);
             }
-            var repaymentProfit = repaymentsSum * revenueParcentOfUnpaidSales;
+            var repaymentProfit = Math.Floor(repaymentsSum * revenueParcentOfUnpaidSales);
 
             lblRepaymentSum.Text = $"{repaymentsSum.ToString()} ({repaymentProfit})";
 
