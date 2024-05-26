@@ -29,13 +29,11 @@ namespace Warehouse
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.btnNewProduct = new System.Windows.Forms.Button();
             this.dgvAllProducts = new System.Windows.Forms.DataGridView();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
-            this.ctxProductItem = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnInputOutput = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllProducts)).BeginInit();
             this.SuspendLayout();
@@ -55,6 +53,8 @@ namespace Warehouse
             this.dgvAllProducts.AllowUserToAddRows = false;
             this.dgvAllProducts.AllowUserToDeleteRows = false;
             this.dgvAllProducts.AllowUserToOrderColumns = true;
+            this.dgvAllProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader;
+            this.dgvAllProducts.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             this.dgvAllProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAllProducts.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dgvAllProducts.Location = new System.Drawing.Point(10, 51);
@@ -64,13 +64,13 @@ namespace Warehouse
             this.dgvAllProducts.RowHeadersWidth = 51;
             this.dgvAllProducts.RowTemplate.Height = 29;
             this.dgvAllProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAllProducts.Size = new System.Drawing.Size(823, 776);
+            this.dgvAllProducts.Size = new System.Drawing.Size(795, 776);
             this.dgvAllProducts.TabIndex = 2;
             this.dgvAllProducts.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAllProducts_CellDoubleClick);
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(547, 15);
+            this.txtSearch.Location = new System.Drawing.Point(520, 14);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(285, 27);
             this.txtSearch.TabIndex = 4;
@@ -96,15 +96,9 @@ namespace Warehouse
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
-            // ctxProductItem
-            // 
-            this.ctxProductItem.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.ctxProductItem.Name = "ctxProductItem";
-            this.ctxProductItem.Size = new System.Drawing.Size(61, 4);
-            // 
             // btnInputOutput
             // 
-            this.btnInputOutput.Location = new System.Drawing.Point(368, 13);
+            this.btnInputOutput.Location = new System.Drawing.Point(342, 13);
             this.btnInputOutput.Name = "btnInputOutput";
             this.btnInputOutput.Size = new System.Drawing.Size(115, 29);
             this.btnInputOutput.TabIndex = 8;
@@ -123,7 +117,7 @@ namespace Warehouse
             this.Controls.Add(this.btnNewProduct);
             this.Controls.Add(this.dgvAllProducts);
             this.Name = "AllProductsControl";
-            this.Size = new System.Drawing.Size(841, 841);
+            this.Size = new System.Drawing.Size(817, 841);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllProducts)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -137,7 +131,6 @@ namespace Warehouse
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.ContextMenuStrip ctxProductItem;
         private System.Windows.Forms.Button btnInputOutput;
     }
 }

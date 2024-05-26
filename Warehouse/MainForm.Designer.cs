@@ -38,9 +38,9 @@ namespace Warehouse
             // 
             // ctrlAllProducts
             // 
-            this.ctrlAllProducts.Location = new System.Drawing.Point(1061, 15);
+            this.ctrlAllProducts.Location = new System.Drawing.Point(853, 12);
             this.ctrlAllProducts.Name = "ctrlAllProducts";
-            this.ctrlAllProducts.Size = new System.Drawing.Size(847, 870);
+            this.ctrlAllProducts.Size = new System.Drawing.Size(816, 870);
             this.ctrlAllProducts.TabIndex = 6;
             this.ctrlAllProducts.ProductChosen += new System.EventHandler<Warehouse.EventArguments.ProductChosenEventArgs>(this.ctrlAllProducts_ProductChosen);
             // 
@@ -49,7 +49,7 @@ namespace Warehouse
             this.ctrlTrade.Location = new System.Drawing.Point(12, 15);
             this.ctrlTrade.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ctrlTrade.Name = "ctrlTrade";
-            this.ctrlTrade.Size = new System.Drawing.Size(983, 590);
+            this.ctrlTrade.Size = new System.Drawing.Size(835, 590);
             this.ctrlTrade.TabIndex = 7;
             this.ctrlTrade.QuantitiesChanged += new System.EventHandler(this.ctrlTrade_QuantitiesChanged);
             this.ctrlTrade.Load += new System.EventHandler(this.ctrlTrade_Load);
@@ -58,11 +58,14 @@ namespace Warehouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1924, 1055);
+            this.ClientSize = new System.Drawing.Size(1669, 1055);
             this.Controls.Add(this.ctrlTrade);
             this.Controls.Add(this.ctrlAllProducts);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MainForm";
             this.Text = "WareHouse";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
 

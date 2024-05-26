@@ -40,11 +40,11 @@ namespace Warehouse
             this.btnSales = new System.Windows.Forms.Button();
             this.datePicker = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtAmount = new System.Windows.Forms.TextBox();
-            this.txtByWhom = new System.Windows.Forms.TextBox();
             this.btnRepay = new System.Windows.Forms.Button();
+            this.txtByWhom = new System.Windows.Forms.TextBox();
+            this.txtAmount = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTrade)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -62,7 +62,7 @@ namespace Warehouse
             this.dgvTrade.RowHeadersWidth = 51;
             this.dgvTrade.RowTemplate.Height = 29;
             this.dgvTrade.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTrade.Size = new System.Drawing.Size(955, 265);
+            this.dgvTrade.Size = new System.Drawing.Size(812, 265);
             this.dgvTrade.TabIndex = 3;
             this.dgvTrade.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTrade_CellValueChanged);
             // 
@@ -143,7 +143,7 @@ namespace Warehouse
             // 
             // btnSales
             // 
-            this.btnSales.Location = new System.Drawing.Point(694, 43);
+            this.btnSales.Location = new System.Drawing.Point(553, 43);
             this.btnSales.Name = "btnSales";
             this.btnSales.Size = new System.Drawing.Size(271, 42);
             this.btnSales.TabIndex = 12;
@@ -153,7 +153,7 @@ namespace Warehouse
             // 
             // datePicker
             // 
-            this.datePicker.Location = new System.Drawing.Point(694, 13);
+            this.datePicker.Location = new System.Drawing.Point(553, 13);
             this.datePicker.Name = "datePicker";
             this.datePicker.Size = new System.Drawing.Size(271, 27);
             this.datePicker.TabIndex = 13;
@@ -165,45 +165,12 @@ namespace Warehouse
             this.groupBox1.Controls.Add(this.txtAmount);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(667, 407);
+            this.groupBox1.Location = new System.Drawing.Point(524, 407);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(300, 153);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Վճարումներ";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(22, 39);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 20);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Գումար";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 72);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 20);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Վճարող";
-            // 
-            // txtAmount
-            // 
-            this.txtAmount.Location = new System.Drawing.Point(91, 36);
-            this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Size = new System.Drawing.Size(182, 27);
-            this.txtAmount.TabIndex = 2;
-            this.txtAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numberInput_KeyPress);
-            // 
-            // txtByWhom
-            // 
-            this.txtByWhom.Location = new System.Drawing.Point(91, 69);
-            this.txtByWhom.Name = "txtByWhom";
-            this.txtByWhom.Size = new System.Drawing.Size(182, 27);
-            this.txtByWhom.TabIndex = 3;
             // 
             // btnRepay
             // 
@@ -215,6 +182,39 @@ namespace Warehouse
             this.btnRepay.Text = "Հաստատել";
             this.btnRepay.UseVisualStyleBackColor = true;
             this.btnRepay.Click += new System.EventHandler(this.btnRepay_Click);
+            // 
+            // txtByWhom
+            // 
+            this.txtByWhom.Location = new System.Drawing.Point(91, 26);
+            this.txtByWhom.Name = "txtByWhom";
+            this.txtByWhom.Size = new System.Drawing.Size(182, 27);
+            this.txtByWhom.TabIndex = 3;
+            // 
+            // txtAmount
+            // 
+            this.txtAmount.Location = new System.Drawing.Point(91, 59);
+            this.txtAmount.Name = "txtAmount";
+            this.txtAmount.Size = new System.Drawing.Size(182, 27);
+            this.txtAmount.TabIndex = 2;
+            this.txtAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numberInput_KeyPress);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(20, 29);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 20);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Վճարող";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(22, 62);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(63, 20);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Գումար";
             // 
             // TradeControl
             // 
@@ -233,7 +233,7 @@ namespace Warehouse
             this.Controls.Add(this.dgvTrade);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "TradeControl";
-            this.Size = new System.Drawing.Size(981, 751);
+            this.Size = new System.Drawing.Size(839, 751);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTrade)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
