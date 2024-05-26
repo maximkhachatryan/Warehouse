@@ -7,7 +7,7 @@ namespace Warehouse.DAL.Postgre
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql(@"Host=localhost; Database=Warehouse; Username=postgres; Password=max279292333231");
+            optionsBuilder.UseNpgsql(@"Host=localhost; Database=Warehouse; Username=postgres; Password=...");
         }
 
         public virtual DbSet<Product> Products { get; set; }
